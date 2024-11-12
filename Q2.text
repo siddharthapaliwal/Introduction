@@ -1,0 +1,52 @@
+Q2. Explain callback in Node.js.
+Answer:-In Node.js, a **callback** is a function passed as an argument to another function, which is then executed after the completion of that function. This approach is essential in Node.js because of its asynchronous, non-blocking nature. By using callbacks, Node.js can perform I/O operations, like reading from a database or file, without blocking the main thread, thus allowing other operations to continue executing.
+
+### Key Concepts of Callbacks in Node.js
+
+1. **Asynchronous Execution**:
+   - Node.js uses callbacks to handle asynchronous operations. Instead of waiting for an operation to complete (like reading a file or querying a database), Node.js continues executing the rest of the code and invokes the callback once the operation is done.
+   
+2. **Non-Blocking**:
+   - Callbacks prevent the program from blocking or waiting for an operation to finish before moving on to the next task. This is crucial for I/O-intensive applications where waiting for each operation would degrade performance.
+
+3. **Error-First Callbacks**:
+   - In Node.js, the common practice is to use *error-first* callbacks, where the first argument of the callback function is an error object (if an error occurred) or `null` (if no error occurred), followed by the result of the operation.
+   - This helps handle errors in asynchronous operations more effectively.
+
+   ```javascript
+   const fs = require('fs');
+
+   fs.readFile('example.txt', 'utf8', function(error, data) {
+     if (error) {
+       console.error("Error reading file:", error);
+       return;
+     }
+     console.log("File content:", data);
+   });
+   ```
+   In this example:
+   - `readFile` is an asynchronous operation.
+   - `function(error, data)` is the callback, executed once the file is read.
+   - If an error occurs (e.g., file not found), `error` will contain details about the error.
+   - If no error occurs, `data` will contain the file's content.
+
+4. **Callback Hell**:
+   - When multiple asynchronous operations are nested within each other, it can lead to complex, deeply nested callback structures, known as "callback hell."
+   - Callback hell makes the code harder to read, debug, and maintain.
+
+   ```javascript
+   fs.readFile('file1.txt', 'utf8', function(error, data1) {
+     if (error) throw error;
+     fs.readFile('file2.txt', 'utf8', function(error, data2) {
+       if (error) throw error;
+       fs.readFile('file3.txt', 'utf8', function(error, data3) {
+         if (error) throw error;
+         console.log(data1, data2, data3);
+       });
+     });
+   });
+   ```
+   - Callback hell is often mitigated using **Promises** or **async/await** syntax.
+
+### Summary
+In Node.js, callbacks allow asynchronous code execution by passing functions as arguments, which get called upon task completion. This non-blocking, error-first approach keeps applications responsive but can lead to complex nesting, known as callback hell, which modern JavaScript often manages using Promises or async/await.

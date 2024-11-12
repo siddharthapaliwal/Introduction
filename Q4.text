@@ -1,0 +1,36 @@
+Q4. What is NPM?
+Answer:-**NPM (Node Package Manager)** is the default package manager for Node.js, and it's also the largest software registry in the world for JavaScript. It allows developers to install, share, update, and manage libraries and packages for Node.js projects, helping streamline and simplify the development process.
+
+### Key Features of NPM
+
+1. **Package Management**:
+   - NPM enables developers to easily install third-party packages (libraries or modules) and manage them as dependencies in a project.
+   - It helps control package versions, ensuring that developers use compatible versions within their applications.
+   
+2. **Global and Local Installation**:
+   - **Local installation**: Installs the package only for the specific project and makes it available in the `node_modules` folder within the project directory.
+   - **Global installation**: Installs the package system-wide, allowing it to be used across multiple projects on the same system.
+
+3. **Version Control**:
+   - NPM provides powerful version management through `package.json`, a file where dependencies, scripts, and project metadata are defined.
+   - Semantic Versioning (SemVer) is used to manage package versions, so developers can specify exact versions or compatible ranges for their dependencies.
+
+4. **Scripts Automation**:
+   - Developers can define and run custom scripts in `package.json` using NPM, automating tasks such as starting a server, running tests, or building projects.
+   - This is often done with commands like `npm run build` or `npm start`, simplifying development workflows.
+
+5. **NPM Registry**:
+   - NPM connects to an online registry (https://www.npmjs.com/) where developers can discover and download public packages created by other developers.
+   - Developers can also publish their own packages to the registry, contributing to the open-source community.
+
+### Commonly Used NPM Commands
+
+- **`npm init`**: Initializes a new project by creating a `package.json` file.
+- **`npm install <package-name>`**: Installs a package locally (within the project directory).
+- **`npm install -g <package-name>`**: Installs a package globally.
+- **`npm update`**: Updates installed packages to their latest compatible versions.
+- **`npm uninstall <package-name>`**: Removes a package from the project.
+- **`npm run <script-name>`**: Runs a custom script defined in the `package.json`.
+
+### Summary
+NPM is a robust package management tool for Node.js that simplifies dependency management, automates tasks, and enables access to a vast library of JavaScript modules, fostering faster and more efficient development.
